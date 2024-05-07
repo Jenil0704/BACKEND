@@ -1,0 +1,25 @@
+npm i jsonwebtoken bcrypt
+
+BCRYPT :
+
+-> used for encryption and decryption. 
+-> syntax :
+ 
+bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+    });
+});
+
+
+-> salt is a long string which mixes with your password and creates a new long string which is impossible to decrypt and bcrypt is used
+to achieve this. If you console.log (hash) you can see the long string generated from that password.
+
+-> 
+bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+    // result == true
+});
+
+now this code checks if the original password and string generated from that password matches or not. 
+-> in myPlaintextPassword your password will be there and in hash your generated string will be there and it will check if it matches and if does it will true 
+   otherwise false.

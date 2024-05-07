@@ -1,0 +1,31 @@
+CRUD OPERATIONS IN BACKEND:
+
+CREATE:
+
+create a model in userModel.js and then import it in index.js
+
+Now if we want to create the model, when user enter "/create" page then,
+
+
+const userModel = require("./userModel");
+
+app.get("/create", async (req,res)=>{
+	const user = await userModel.create({
+		name : "harsh",
+		email : "harsh@gmail.com",
+		password : "1235"
+	})
+	
+	res.send(user);
+})
+
+mongoose code is always async code so we have to use async await.
+
+
+UPDATE:
+
+app.get("/create", async (req,res)=>{
+	
+	const user = await userModel.findOneAndUpdate({username:"harsh"}, {password:"1235"}, {new:true});
+	res.send(user);
+})
